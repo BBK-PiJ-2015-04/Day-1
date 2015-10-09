@@ -1,46 +1,111 @@
-int number
-String str
+print "Please enter a number "
+String str = System.console().readLine();
+int originalNumber = Integer.parseInt(str);
+int i
+boolean primeTest
+boolean primeItself = false
+int divTest // Test for divisibility
+int searchUp = 0
+int searchDown = 0
 
-print ("Tell me a number: ")
-str = System.console().readLine()
-number = Integer.parseInt(str)
+// First we test and see if the number entered itself is prime.
+// If it is, then we set a flag "primeItself" to be true.
 
-// First let us check to see if the number itself is prime
+// Below is the code to test a number if it is prime.
+// The number is in the variable "number" and result
+// is in the boolean variable "primeTest".
 
-int i = 1
-int prime = 1
-int divTest
+number = originalNumber
 
-while (i < number) {
-	i++
-	divTest = number % i
-	if (divTest == 0) {
-		if (i < number) {
-			prime=0
-			break
-		}
-	}
-}
-
-if (prime == 1) {
-	println ("The number you entered is a prime number.")
+if (number <2) {
+	primeTest = false
 }
 
 else {
-	// Let's go upwards to find the first prime number we find
-	number++
-	i = 1
-	while (i < number) {
+	primeTest = true
+}
+
+i = 1 // set the counter to 1 to start the loop below
+
+while (i < (number - 1)) {
+	i++
+	divTest = number % i
+	if (divTest == 0) {
+		primeTest = false
+	}
+}	
+
+if (primeTest == true) {
+	primeItself = true
+}
+
+// Now we start to find the closest prime higher
+
+while (1 == 1) { // Enless loop - only way out is to break
+	number++ // increase the number by 1
+	// now we test if it is prime
+	if (number <2) {
+		primeTest = false
+	}
+	else {
+		primeTest = true
+	}
+	i = 1 // set the counter to 1 to start the loop below
+	while (i < (number - 1)) {
 		i++
 		divTest = number % i
 		if (divTest == 0) {
-			if (i < number) {
-				prime = 0
-				break
-			}
+			primeTest = false
 		}
+	}	
+	if (primeTest == true) {
+		searchUp = number
+		println searchUp
+		break
 	}
-	println prime
-	println number
-	
 }
+
+// Now we start to find the closest prime lower
+
+number = originalNumber
+
+while (1 == 1) { // Enless loop - only way out is to break
+	number-- // decrease the number by 1
+	// now we test if it is prime
+	if (number <2) {
+		primeTest = false
+	}
+	else {
+		primeTest = true
+	}
+	i = 1 // set the counter to 1 to start the loop below
+	while (i < (number - 1)) {
+		i++
+		divTest = number % i
+		if (divTest == 0) {
+			primeTest = false
+		}
+	}	
+	if (primeTest == true) {
+		searchDown = number
+		println searchDown
+		break
+	}
+}
+
+
+
+
+
+
+
+
+if (primeItself == true) {
+	println ("The number you entered was itself a prime number")
+}
+
+else {
+}
+
+
+
