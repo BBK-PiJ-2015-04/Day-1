@@ -1,11 +1,11 @@
+int number = 1
+
+while (number < 20) {
 
 
 
 
 
-print "Please enter a number "
-String str = System.console().readLine();
-int number = Integer.parseInt(str);
 int i = 1
 int prime = 1
 int divTest
@@ -19,9 +19,10 @@ while (i < number) {
 		}
 	}
 }
+
 if (prime == 1) {
-	println ("The number is a prime number.")
+	println number
 }
-else {
-	println("The number is NOT a prime number!")
+number++
+
 }
