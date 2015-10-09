@@ -60,7 +60,6 @@ while (1 == 1) { // Enless loop - only way out is to break
 	}	
 	if (primeTest == true) {
 		searchUp = number
-		println searchUp
 		break
 	}
 }
@@ -88,24 +87,28 @@ while (1 == 1) { // Enless loop - only way out is to break
 	}	
 	if (primeTest == true) {
 		searchDown = number
-		println searchDown
 		break
 	}
 }
 
+// Now we have both the closest prime numbers and we are
+// nearly done!
 
+if ((searchUp - originalNumber) == (originalNumber - searchDown)) {
+	// Both numbers are same distance
+	println searchDown
+	println searchUp
+}
 
-
-
-
-
-
-if (primeItself == true) {
-	println ("The number you entered was itself a prime number")
+else if ((searchUp - originalNumber) < (originalNumber - searchDown)) {
+	println searchUp
 }
 
 else {
+	if (primeItself == true) {
+		println (originalNumber + " is itself a prime number!")
+	}
+	else {
+		println searchDown
+	}
 }
-
-
-
