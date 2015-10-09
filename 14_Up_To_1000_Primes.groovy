@@ -1,26 +1,40 @@
-int number = 1
-int counter = 0
-int dummy = 0
-while (dummy == 0) { // endless loop - the only way out is to break
-	int i = 1
-	int prime = 1
-	int divTest
-	while (i < number) {
-		i++;
+int number
+int i
+boolean primeTest
+int divTest // Test for divisibility
+int counter = 1
+
+number = 2 // We start with the smallest prime number 2
+
+while (counter < 1001) {
+
+	// Below is the code to test a number if it is prime.
+	// The number is in the variable "number" and result
+	// is in the boolean variable "primeTest".
+
+	if (number <2) {
+		primeTest = false
+	}
+
+	else {
+		primeTest = true
+	}
+
+	i = 1 // set the counter to 1 to start the loop below
+
+	while (i < (number - 1)) {
+		i++
 		divTest = number % i
 		if (divTest == 0) {
-			if (i < number) {
-				prime=0
-				break
-			}
+			primeTest = false
 		}
-	}
-	if (prime == 1) {
-	println number
-	counter++
-	}
-	if (counter == 1000) { // have we reached a thousand primes?
-	break
-	}
-number++
+	}	
+
+	if (primeTest == true) {
+		println (number)
+		counter++ // now we start counting how many primes
+		}
+
+	number++
+
 }
